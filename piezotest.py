@@ -17,6 +17,6 @@ if __name__== "__main__":
 			#for i in range(NCHANEL):
 			#	print(analog_read(i))
 			print(analog_read(0))
-			time.sleep(0.3)
+			time.sleep(1)
 	except KeyboardInterrupt:
 		pass

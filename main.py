@@ -25,7 +25,7 @@ def setup():
 def main_loop():
 	drums = setup()
 	while True:
-		for d in drums
+		for d in drums:
 			d.play()
 		time.sleep(0.02)
 
