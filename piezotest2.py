@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 import time
 import spidev
+import sys
 
 Vref = 3.334  # 電圧をテスターで実測する
 
@@ -21,9 +22,15 @@ def convertVolts(data, vref):
 	return volts
 
 if __name__ == '__main__':
+	args = sys.argv
+	ch = int(args[1])
+	if ch < 0 or 4 < ch:
+		print("Invalid arg", ch)
+		sys.exit()
+
 	try:
 		while True:
-			data = readAdc(channel=0)
+			data = readAdc(channel=ch)
 			volts = convertVolts(data, Vref)
 			if volts > 0.01:
 				print("CH0 volts: {:.2f}".format(volts))
